@@ -1,15 +1,14 @@
-function guessinggame {
+#function getthenumber {
 number=$(ls -F | egrep -v / | wc -l )
-count=0
-echo "guess the number of files in this diroctory"
+#echo $count
+#}
+
+#number= $(getthenumber)
+echo "guess the number of files in this diroctory: "
 read answer
-while [[ $count -eq 0 ]]
+while [[ $answer -ne $number ]]
 do
-if [[ $answer -eq $number ]]
-then
-echo "congratulations you won"
-break
-elif [[ $answer -gt $number ]]
+if [[ $answer -gt $number ]]
 then
 echo "your guess is too high!"
 break
@@ -17,9 +16,12 @@ elif [[ $answer -lt $number ]]
 then
 echo "you guess is too low!"
 break
-else
+elif [[ ! $answer =~ [0-9] ]]
+then
 echo "make sure you entered a number"
-let count=$count+1
 fi
 done
-}
+if [[ $answer -eq $number ]]
+then
+echo "congratulations you won"
+fi
