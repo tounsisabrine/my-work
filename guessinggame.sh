@@ -24,8 +24,7 @@ elif [[ $answer -lt $number ]]
 then
 echo "you guess is too low!"
 break
-elif [[ ! $answer =~ [0-9] ]]
-then
+else
 echo "make sure you entered a number"
 fi
 done
