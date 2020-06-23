@@ -19,13 +19,16 @@ do
 if [[ $answer -gt $number ]]
 then
 echo "your guess is too high!"
-break
+echo "let's try again"
+read answer
 elif [[ $answer -lt $number ]]
 then
 echo "you guess is too low!"
-break
+echo "let's try again"
+read answer
 else
 echo "make sure you entered a number"
+read answer
 fi
 done
 win
